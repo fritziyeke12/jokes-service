@@ -11,10 +11,10 @@ app.get('/jokes', async (req, res, next) => {
     const jokes = [];
     res.send(jokes);
   } catch (error) {
-    console.error(error);
+    console.error(error);ff
     next(error)
   }
-});
-
+// });ffffffffffffffff
+ff
 // we export the app, not listening in here, so that we can run tests
 module.exports = app;
