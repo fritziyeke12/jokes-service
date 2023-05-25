@@ -1,8 +1,8 @@
 const {Joke} = require('./Joke');
-const {sequelize, Sequelize} = require('./db');
+const {sequelize, Op} = require('./db');
 
 module.exports = {
     Joke,
     sequelize,
-    Sequelize
+    Op
 };
