@@ -9,17 +9,19 @@ app.use(express.json());
 
 app.get('/jokes', async (req, res, next) => {
 
-  if(req.query.tag){
+  if(req.query){
     try {
       // TODO - filter the jokes by tags and content
-      const {tag, content} = req.query;
       const jokes = await Joke.findAll({
         where: {
           tags: {
-            [Op.substring]: req.query.tag
+            [Op.substring]: req.query.tag ?? ""
+          },
+          joke: {
+            [Op.substring]: req.query.content ?? ""
           }
         }
-      }); //SELECT * FROM Joke by Tags
+      });
       res.send(jokes);
     } catch (error) {
       console.error(error);
